@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'nid' => '123456789',
             'email' => 'admin@email.com',
-            'password' => bcrypt('22222222'),
+            'password' => bcrypt('2222222'),
         ]);
         DB::table('users')->insert([
             'role_id' => 2,
