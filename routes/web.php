@@ -1,11 +1,10 @@
 <?php
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('front/index');});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/blog', 'HomeController@blog')->name('blog');
 
 //Admin Route
 Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function(){
