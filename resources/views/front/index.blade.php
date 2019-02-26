@@ -6,15 +6,30 @@
 
 <!-- start banner Area -->
 <section class="banner-area relative" id="home">
-    <div class="overlay overlay-bg"></div>	
+    <div class="overlay overlay-bg">
+        
+    </div>	
     <div class="container">
         <div class="row fullscreen d-flex align-items-center justify-content-between">
+            
             <div class="banner-content col-lg-4 col-md-6 header-right">
-                <h4 class="pb-30">Login</h4>
-                <form class="form">
+                <h4 class="pb-30">Have an Account? <br> Login Here</h4>
+                <form method="POST" action="{{ route('login') }}" class="form">
+                        @csrf
                     <div class="from-group">
-                        <input class="form-control txt-field inputfield" type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'">
-                        <input class="form-control txt-field inputfield" type="password" name="phone" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone number'">
+                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} inputfield txt-field" name="email" value="{{ old('email') }}" required autofocus  placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'">
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} txt-field inputfield" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone number'" required >
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                     </div>								
                                         
                     <div class="form-group">

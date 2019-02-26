@@ -43,13 +43,22 @@
             <a href="{{url('/')}}"><img src="{{asset('front/img/logo.png')}}" alt="" title="" /></a>		
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
+                   
                     <li class="menu-active"><a href="{{url('/')}}">Home</a></li>
                     <li><a href="{{url('/about')}}">About</a></li>
-                    <li><a href="{{url('/blog')}} ">Blog</a>
-                    </li>
-                    <li><a href="elements.html">Terms & Condition</a></li>							  			          	          
-                    <li><a href="elements.html">Privacy & Policy</a></li>							  			          	          
+                    <li><a href="{{url('/blog')}} ">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    @guest
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a href="{{route('register')}}">Register</a></li>
+                    @else
+                        <li>
+                            <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
                 </ul>
             </nav><!-- #nav-menu-container -->
             
@@ -57,6 +66,8 @@
         
     </div>
     </header><!-- #header -->
+
+    
 
 
     @yield('content')
