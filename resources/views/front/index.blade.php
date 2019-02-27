@@ -24,7 +24,7 @@
                                 </span>
                             @endif
 
-                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} txt-field inputfield" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone number'" required >
+                        <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} txt-field inputfield" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required >
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
