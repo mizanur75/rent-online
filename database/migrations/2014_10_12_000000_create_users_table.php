@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('nid')->unique();
             $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->string('upz');
+            $table->string('dist');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->default('default.png');

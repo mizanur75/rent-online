@@ -11,13 +11,14 @@
     <title>Welcome to Rent Online Registration</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container bg-dark">
         <h1 class="well">Create an Account <a class="badge badge-success" style="font-size:12px;" href="{{route('login')}}">Have an Account?</a></h1>
         <div class="well">
-            <form action="" method="get">
+            <form action="{{ url('register') }}" method="POST" enctype="multipart/form-data">
+			@csrf
                 <div class="text-center">
                     <label for="2" style="margin-right: 5em;"><input id="2" type="radio" value="2" name="role_type"> Rent Giver</label>
-                    <label for="3"><input id="3" type="radio" value="3" name="role_type"> Rent Giver</label>
+                    <label for="3"><input id="3" type="radio" value="3" name="role_type"> Rent Taker</label>
                 </div>
         </div>
 	    <div class="col-lg-12 well">
@@ -27,47 +28,54 @@
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Username</label>
-								<input type="text" placeholder="Enter a Unique username Here.." class="form-control" required>
+								<input type="text" placeholder="Enter a Unique username Here.." class="form-control" >
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Name</label>
-								<input type="text" placeholder="Enter Name Here.." class="form-control" required>
+								<input type="text" placeholder="Enter Name Here.." class="form-control" >
 							</div>
 						</div>					
 						<div class="form-group">
 							<label>NID Number</label>
-							<input type="text" placeholder="Enter Valid NID Number Here.." class="form-control" required>
+							<input type="text" placeholder="Enter Valid NID Number Here.." class="form-control" >
 						</div>
                         <div class="form-group">
                             <label>Email Address</label>
-                            <input type="email" placeholder="Enter Email Address Here.." class="form-control" required>
+                            <input type="email" placeholder="Enter Email Address Here.." class="form-control" >
                         </div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
 								<label>Phone</label>
-								<input type="text" placeholder="Enter Phone Name Here.." class="form-control" required>
+								<input type="text" placeholder="Enter Phone Name Here.." class="form-control" >
 							</div>	
 							<div class="col-sm-4 form-group">
 								<label>Upozila</label>
-								<input type="text" placeholder="Enter Upozila Name Here.." class="form-control" required>
+								<input type="text" placeholder="Enter Upozila Name Here.." class="form-control" >
 							</div>	
 							<div class="col-sm-4 form-group">
 								<label>District</label>
-								<input type="text" placeholder="Enter District Code Here.." class="form-control" required>
+								<input type="text" placeholder="Enter District Code Here.." class="form-control" >
 							</div>		
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Password</label>
-								<input type="password" placeholder="Enter Password Here.." class="form-control" required>
+								<input type="password" placeholder="Enter Password Here.." class="form-control" >
 							</div>		
 							<div class="col-sm-6 form-group">
 								<label>Confirm Password</label>
-								<input type="password" placeholder="Re-Enter Password Name Here.." class="form-control" required>
-							</div>	
+								<input type="password" placeholder="Re-Enter Password Name Here.." class="form-control" >
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="custom-file">
+								<span class="form-group-text">Upload</span>
+								<input type="file" class="custom-file-input form-control" id="w">
+								<label class="custom-file-label" for="w">Choose file</label>
+							</div>
 						</div>
                         <a href="{{url('/')}}" class="btn btn-primary">Go Back</a>
-					    <button type="submit" class="btn btn-info pull-right">Create</button>					
+					    <input type="submit" class="btn btn-info pull-right" value="Create" />					
 					</div>
 				</form> 
 			</div>

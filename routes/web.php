@@ -6,6 +6,10 @@ Auth::routes();
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/blog', 'HomeController@blog')->name('blog');
 
+
+
+Route::any('{url}', 'HomeController@index');
+
 //Admin Route
 Route::group(['as'=>'admin.', 'prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','admin']], function(){
     Route::get('dashboard','DashboardController@index')->name('dashboard');
